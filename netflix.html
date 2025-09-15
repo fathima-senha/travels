@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+    .container{
+        background-image: url(https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .navbar.bg-body-tertiary{
+        background-color: transparent;
+    }
+
+    .text-center{
+        font-weight: 900;       
+        color: white;           
+        margin-top: 80px;       
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        font-size: 50px;
+    }
+
+    .netflix-logo {
+        font-weight: 900;        
+        color: red;              
+        font-size: 50px;         
+        border-radius: 10px;     
+        padding: 5px 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-shadow: 1px 1px 4px black;
+    }
+
+    .form-select {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+    .form-select option {
+        color: black;
+    }
+
+    .netflix-text {
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        margin: 8px 0;
+    }
+
+    .netflix-txt {
+        color: white;
+        font-size: 25px;
+        font-weight: 500;
+        margin: 8px 0;
+    }
+
+    .input-box{
+        font-size: 30px;
+        background-color: black;
+        border: 2px solid gray;
+        border-radius: 5px;
+        padding: 10px 15px;
+        color: white;
+        width: 350px;         
+        height: 55px;     
+    }
+
+    .input-box::placeholder {
+        font-size: 25px;   
+        color: gray;
+    }
+
+    .button{
+        font-size: 30px;
+        border-radius: 5px;
+        padding: 0 20px;
+        background-color: #E50914;  
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #b20710;
+    }
+
+    /* ✅ Card Styling */
+    .custom-card {
+       height: 260px; /* taller card */
+    }
+
+    .custom-card img {
+       height: 100%;
+       object-fit: cover; /* fill card */
+    }
+
+    .card-number {
+        position: absolute;
+        bottom: 10px;
+        left: 15px;
+        font-size: 60px;       
+        font-weight: bold;
+        color: black;
+        -webkit-text-stroke: 2px white;
+        margin: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .d-flex{
+      border-radius: 5px;
+    }
+
+    .custom-arrow {
+       font-size: 50px;      /* make arrow bigger */
+       color: white;         /* arrow color */
+       font-weight: bold;    
+       text-shadow: 2px 2px 6px black; /* glowing effect */
+    }
+
+    .carousel-control-prev,
+.carousel-control-next {
+  width: auto;                 /* remove Bootstrap’s default 15% width */
+  top: 50%;                    /* vertically center */
+  transform: translateY(-50%); /* perfect vertical alignment */
+  opacity: 1;                  /* always visible */
+}
+
+.carousel-control-prev {
+  left: -60px;   /* move outside to the left */
+}
+
+.carousel-control-next {
+  right: -60px;  /* move outside to the right */
+}
+
+.custom-arrow {
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px black;
+  transition: color 0.3s ease;
+}
+
+.custom-arrow:hover {
+  color: red;   /* Netflix-style hover */
+}
+
+.card-body{
+  background: transparent;
+}
+
+.grid{
+  font-size: 15px;
+  font-weight: 150;
+  color: white;
+}
+
+.form-selct {
+        background-color: transparent;
+        color: white;
+        border: 3px solid white;
+        border-radius: 5px;
+    }
+.form-selct option {
+        color: black;
+    }
+    .card-body{
+      height: 250px;
+      background: linear-gradient(135deg, #333652 0%, #282238 50%, #1f1322 100%);
+      color: #ffff;
+      border-radius: 5px;
+      border-color: none;
+    }
+    .card-title{
+      font-weight: 700;
+      font-size: large;
+    }
+    .accordion{
+      color: black;
+      border: none;
+    }
+
+    .accordion-content {
+    background-color: black;
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  /* Remove line/border between items */
+  .accordion-flush .accordion-item {
+    border: none;
+  }
+
+  /* Replace arrow with + symbol */
+  .accordion-button::after {
+  content: '+';
+  font-size: 3.5rem;
+  color: white;
+  background-image: none !important;
+  transform: none !important;
+  display: flex;
+  align-items: center;   /* Vertically center */
+  justify-content: center; /* Horizontally center */
+}
+
+  .accordion-button:not(.collapsed)::after {
+    content: 'x';
+    color: white;
+  }
+
+  .accordion-button {
+    background-color:rgba(26, 28, 30, 0.9); 
+    color: white;
+    font-size: 1.7rem; /* Increase question text size */
+    padding: 1.7rem;
+  }
+  .accordion-body {
+  background-color: black;
+  color: white;
+  width: 300px;
+  }
+  .accordion-header{
+    font-size: 200px;
+  }
+  .accordion-item {
+  margin-bottom: 0.6rem; /* Gap between each item */
+  }
+
+
+    </style>
+</head>
+<body class="container">
+    <nav class="navbar navbar-expand-lg" style="background: transparent;">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand netflix-logo">NETFLIX</a>
+
+    <!-- Right side -->
+    <div class="d-flex">
+      <!-- Language Dropdown -->
+      <select class="form-select me-2" style="width: auto;">
+        <option selected>English</option>
+        <option>हिंदी</option>
+      </select>
+
+      <!-- Sign in button -->
+      <button class="btn btn-danger" type="button">Sign in</button>
+    </div>
+  </div>
+</nav>
+<br><br>
+<h2 class="text-center mb-4">Unlimited movies,TV <br>shows and more</h2>
+<div class="text-center mt-4">
+  <p class="netflix-txt">Starts at ₹149. Cancel at any time.</p>
+  <p class="netflix-text">Ready to watch? Enter your email to create or restart your membership.</p>
+  <div class="d-flex justify-content-center">
+    <input class="input-box me-2" type="email" placeholder="Email address">
+    <button class="button" type="submit">Get Started</button>
+  </div>
+</div>
+
+<div id="cardCarousel" class="carousel slide my-5">
+  <div class="carousel-inner container">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="row g-4 text-center">
+        <h2 align="left">Trending Now</h2>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://dippedindoodles.in/cdn/shop/collections/1_21d28446-d93c-4a6b-b047-ed649eee7a75.jpg?v=1711350488" class="card-img-top" alt="1">
+            <h1 class="card-number">1</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://images-cdn.ubuy.co.in/6351786df16d225788751505-friends-framed-tv-show-poster-the.jpg" class="card-img-top" alt="2">
+            <h1 class="card-number">2</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://i0.wp.com/redanianintelligence.com/wp-content/uploads/2019/11/witcherposter-Copy.jpg?fit=1600%2C1132&ssl=1" class="card-img-top" alt="3">
+            <h1 class="card-number">3</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX04aqTdtTSNkKVh3vM6xRw_goD_gJ_PqHng&s" class="card-img-top" alt="4">
+            <h1 class="card-number">4</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="row g-4 text-center">
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://wallpapers.com/images/hd/tom-and-jerry-poster-2f5fbl2k3wwi31aq.jpg" class="card-img-top" alt="5">
+            <h1 class="card-number">5</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://comicbook.com/wp-content/uploads/sites/4/2024/07/741d5549-c8f5-40d0-b843-1043694e9dd4.jpg?w=1024" class="card-img-top" alt="6">
+            <h1 class="card-number">6</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://m.media-amazon.com/images/M/MV5BMjI1ZTkxMmMtYmZhYS00MjQwLWIyMGUtN2VmMTBkYWRkNmE1XkEyXkFqcGc@._V1_.jpg" class="card-img-top" alt="7">
+            <h1 class="card-number">7</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card position-relative custom-card">
+            <img src="https://cdn.europosters.eu/image/750/8946.jpg" class="card-img-top" alt="8">
+            <h1 class="card-number">8</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+  <span class="custom-arrow" aria-hidden="true">&#x2039;</span>  <!-- Left arrowhead -->
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+  <span class="custom-arrow" aria-hidden="true">&#x203A;</span>  <!-- Right arrowhead -->
+  <span class="visually-hidden">Next</span>
+</button>
+</div>
+<!--corosel end-->
+
+<div class="row g-4" style="color: white;">
+        <h2>More reasons to join</h2>
+</div>
+<!--2nd cards-->
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Enjoy on your TV</h5>
+        <p class="card-text" style="color:darkgrey;">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Download your shows to watch offline</h5>
+        <p class="card-text" style="color:darkgrey;">Save your favourites easily and always have something to watch.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Watch everywhere</h5>
+        <p class="card-text" style="color:darkgrey;">Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Create profiles for kids</h5>
+        <p class="card-text" style="color:darkgrey;">Send kids on adventures with their favourite characters in a space made just for them — free with your membership.</p>
+      </div>
+    </div>
+  </div>
+</div><br><br><br>
+<!--accordin-->
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <h2 class="mb-3" style="color: white; font-weight: 600;">Frequently Asked Questions</h2>
+
+  <!-- Item 1 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne">
+        What is Netflix?
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <!-- ✅ Now using custom div instead of styling .accordion-body -->
+      <div class="accordion-content">
+        Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.
+        You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV 
+        shows and movies are added every week!.
+      </div>
+    </div>
+  </div>
+
+  <!-- Item 2 -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo">
+        How much does Netflix cost?
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-content">
+        Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to 
+        ₹649 a month. No extra costs, no contracts.
+      </div>
+    </div>
+  </div>
+  <!--item 3-->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree">
+        Where can I watch?
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-content">
+        Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any 
+        internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.
+
+        You can also download your favourite shows with the iOS or Android app. Use downloads to watch while you're on the go and without an internet 
+        connection. Take Netflix with you anywhere.
+      </div>
+    </div>
+  </div>
+  <!-- 4-->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour">
+        How do I cancel?
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-content">
+        Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no 
+        cancellation fees – start or stop your account anytime.
+      </div>
+    </div>
+  </div>
+  <!--item 5-->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive">
+        What can I watch on Netflix?
+      </button>
+    </h2>
+    <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-content">
+        Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as 
+        much as you want, anytime you want.
+      </div>
+    </div>
+  </div>
+  <!--item 6-->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix">
+        Is Netflix good for kids?
+      </button>
+    </h2>
+    <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-content">
+        The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in 
+        their own space.
+        Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block 
+        specific titles you don’t want kids to see.
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<div class="text-center mt-4">
+  <p class="netflix-text">Ready to watch? Enter your email to create or restart your membership.</p>
+  <div class="d-flex justify-content-center">
+    <input class="input-box me-2" type="email" placeholder="Email address">
+    <button class="button" type="submit">Get Started</button>
+  </div>
+</div><br><br>
+
+<div class="text-shadow mt-4" style="color: white;">Questions Call <a style="color: white;"><u>000-800-919-1743</u></a></div><br><br>
+
+<div class="grid">
+  <div class="row">
+    <div class="col">
+      <a href="" style="color: white;">FAQ</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Help Centre</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Account</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Media Centre</a>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col">
+      <a href="" style="color: white;">Investor Relations</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Jobs</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Ways to Watch</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Terms of Use</a>
+    </div><br>
+  </div><br>
+  <div class="row">
+    <div class="col">
+      <a href="" style="color: white;">Privacy</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Cookie Preferences</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Corporate Information</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Contact Us</a>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col">
+      <a href="" style="color: white;">Speed Test</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Legal Notices</a>
+    </div>
+    <div class="col">
+      <a href="" style="color: white;">Only on Netflix</a>
+    </div>
+    <div class="col">
+    </div>
+  </div>  
+</div>
+<br><br><br><br>
+
+<select class="form-selct me-2" style="width: auto;">
+  <option selected>English</option>
+  <option>हिंदी</option>
+</select><br><br>
+
+<div class="text-shadow mt-4" style="color: white;">Netflix India</div>
+<div class="text-shadow mt-4" style="color: white;">This page is protected by Google reCAPTCHA to ensure you're not a bot.
+  <a href="">learn more</a>
+</div><br><br><br><br><br><br>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
